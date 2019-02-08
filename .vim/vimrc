@@ -1,0 +1,220 @@
+set nocompatible          
+filetype off           
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-utils/vim-alt-mappings'
+Plugin 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
+Plugin 'vim-scripts/Conque-Shell'
+
+
+" Language support
+Plugin 'alvan/vim-closetag'
+Plugin 'othree/html5.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'JamshedVesuna/vim-markdown-preview'          
+Plugin 'elixir-editors/vim-elixir'                                       
+Plugin 'slashmili/alchemist.vim'
+Plugin 'mhinz/vim-mix-format'
+
+
+call vundle#end()           
+filetype plugin indent on
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => UI Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
+set showcmd
+set cursorline
+filetype indent on
+set wildmenu
+set showmatch
+set mat=2
+set so=7
+set incsearch
+set hlsearch
+set lazyredraw 
+set ruler
+set cmdheight=2
+set splitbelow
+set splitright
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Set font
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Source\ Code\ Pro:h25
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Status line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set laststatus=2
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+colorscheme escuro
+set background=dark
+
+" Spaces & Tabs
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set noeb vb t_vb=.
+set tm=500
+
+
+" Set utf8 as standard encoding
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Key Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = ","
+
+:imap jk <Esc>
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+map ; :Files<CR>
+map <leader>t :NERDTreeToggle<cr>
+map <leader>tb :NERDTreeFromBookmark 
+map <leader>tf :NERDTreeFind<cr>
+
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+
+map <leader>q :q!<cr>
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Splitting windows
+map <leader>vs :vsplit<cr>
+map <leader>s :split<cr>
+
+map <leader>tn :tab new<cr>
+map <leader>tr :tabclose<cr>
+map <leader>tra :tabo
+map  <S-n> :tabn<cr>
+map  <S-j> :tabp<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Move a line of text using ALT+[jk] or Command+[jk] on mac
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+map  <A-d> :t.<CR>
+map  <A-o> [[
+map  <A-p> ]]
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Put all temporary files under the same directory
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if exists("*mkdir")
+  for dir in ["files", "files/backup", "files/swap", "files/undo", "files/info"]
+    if !isdirectory($HOME . "/.vim/" . dir)
+      call mkdir($HOME . "/.vim/" . dir)
+    endif
+  endfor
+endif
+
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap/
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+filetype plugin indent on
+
+
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
+let g:mix_format_on_save = 1
+
+let g:alchemist_tag_map = '<C-]>'
+let g:alchemist_tag_stack_map = '<C-T>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Lightline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GitGutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
