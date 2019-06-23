@@ -119,6 +119,7 @@ source $ZSH/oh-my-zsh.sh
 alias postgres="pg_ctl -D /usr/local/var/postgres"
 export PATH="$HOME/anaconda3/bin:$PATH"
 export PATH="$HOME/goon/:$PATH"
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
