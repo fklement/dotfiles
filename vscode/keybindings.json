@@ -156,31 +156,31 @@
         "when": "textInputFocus"
     },
     {
-        "key": "tab u",
+        "key": "[IntlBackslash] u",
         "command": "cursorLineStart",
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+a",
-        "command": "-cursorLineStart",
+        "key": "ctrl+alt+l",
+        "command": "cursorLineStart",
         "when": "textInputFocus"
     },
     {
-        "key": "tab i",
+        "key": "[IntlBackslash] i",
         "command": "cursorLineEnd",
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+e",
-        "command": "-cursorLineEnd",
+        "key": "ctrl+alt+h",
+        "command": "cursorLineEnd",
         "when": "textInputFocus"
     },
     {
-        "key": "` f1",
+        "key": "alt+f10",
         "command": "projectManager.addToFavorites"
     },
     {
-        "key": "tab n",
+        "key": "[IntlBackslash] n",
         "command": "workbench.action.moveEditorLeftInGroup"
     },
     {
@@ -188,11 +188,29 @@
         "command": "-workbench.action.moveEditorLeftInGroup"
     },
     {
-        "key": "tab m",
+        "key": "[IntlBackslash] m",
         "command": "workbench.action.moveEditorRightInGroup"
     },
     {
         "key": "cmd+k shift+cmd+right",
         "command": "-workbench.action.moveEditorRightInGroup"
     },
+    {
+        "key": "ctrl+a",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "bracket-pair-colorizer-2.expandBracketSelection",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "bracket-pair-colorizer-2.undoBracketSelection",
+        "when": "editorTextFocus"
+    }
 ]
