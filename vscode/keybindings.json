@@ -212,5 +212,9 @@
         "key": "shift+alt+k",
         "command": "bracket-pair-colorizer-2.undoBracketSelection",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "findJump.activate"
     }
 ]
