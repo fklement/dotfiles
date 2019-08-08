@@ -1,45 +1,48 @@
-code --install-extension af4jm.vscode-icalendar
-code --install-extension alefragnani.project-manager
-code --install-extension benvp.vscode-hex-pm-intellisense
-code --install-extension CoenraadS.bracket-pair-colorizer-2
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension deerawan.vscode-dash
-code --install-extension eamodio.gitlens
-code --install-extension ecmel.vscode-html-css
-code --install-extension EditorConfig.EditorConfig
-code --install-extension eg2.vscode-npm-script
-code --install-extension emeraldwalk.RunOnSave
-code --install-extension ericadamski.carbon-now-sh
-code --install-extension felixfbecker.php-intellisense
-code --install-extension formulahendry.auto-rename-tag
-code --install-extension formulahendry.terminal
-code --install-extension HookyQR.beautify
-code --install-extension JakeBecker.elixir-ls
-code --install-extension kkalita.dark-plus-elixir
-code --install-extension kuscamara.electron
-code --install-extension mjmcloug.vscode-elixir
-code --install-extension mrmlnc.vscode-apache
-code --install-extension mrorz.language-gettext
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension MS-CEINTL.vscode-language-pack-de
-code --install-extension ms-python.python
-code --install-extension ms-vscode.cpptools
-code --install-extension ms-vscode.Go
-code --install-extension ms-vsliveshare.vsliveshare
-code --install-extension octref.vetur
-code --install-extension Pivotal.vscode-spring-boot
-code --install-extension PKief.material-icon-theme
-code --install-extension pkosta2005.heroku-command
-code --install-extension redhat.java
-code --install-extension robinbentley.sass-indented
-code --install-extension vincaslt.highlight-matching-tag
-code --install-extension VisualStudioExptTeam.vscodeintellicode
-code --install-extension vscjava.vscode-java-debug
-code --install-extension vscjava.vscode-java-dependency
-code --install-extension vscjava.vscode-java-pack
-code --install-extension vscjava.vscode-java-test
-code --install-extension vscjava.vscode-maven
-code --install-extension vscjava.vscode-spring-initializr
-code --install-extension wayou.vscode-todo-highlight
-code --install-extension yzhang.markdown-all-in-one
-code --install-extension zhuangtongfa.Material-theme
+af4jm.vscode-icalendar
+alefragnani.project-manager
+benvp.vscode-hex-pm-intellisense
+christian-kohler.npm-intellisense
+CoenraadS.bracket-pair-colorizer-2
+dbaeumer.jshint
+dbaeumer.vscode-eslint
+deerawan.vscode-dash
+eamodio.gitlens
+ecmel.vscode-html-css
+EditorConfig.EditorConfig
+eg2.vscode-npm-script
+emeraldwalk.RunOnSave
+ericadamski.carbon-now-sh
+felixfbecker.php-intellisense
+formulahendry.auto-rename-tag
+formulahendry.terminal
+HookyQR.beautify
+JakeBecker.elixir-ls
+kkalita.dark-plus-elixir
+kuscamara.electron
+mjmcloug.vscode-elixir
+mksafi.find-jump
+mrmlnc.vscode-apache
+mrorz.language-gettext
+ms-azuretools.vscode-docker
+MS-CEINTL.vscode-language-pack-de
+ms-python.python
+ms-vscode.cpptools
+ms-vscode.Go
+ms-vsliveshare.vsliveshare
+octref.vetur
+Pivotal.vscode-spring-boot
+PKief.material-icon-theme
+pkosta2005.heroku-command
+redhat.java
+robinbentley.sass-indented
+vincaslt.highlight-matching-tag
+VisualStudioExptTeam.vscodeintellicode
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
+vscjava.vscode-spring-initializr
+wayou.vscode-todo-highlight
+yzhang.markdown-all-in-one
+zhuangtongfa.Material-theme
