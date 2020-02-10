@@ -1,0 +1,36 @@
+#Window/pane split
+bind | split-window -h
+
+# unbind default prefix and set it to Ctrl+a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# moving between panes with vim movement keys
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# moving between windows with vim movement keys
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# enable mouse movements
+set -g mode on
+
+# Color & Style Settings
+# source ~/.dotfiles/tmux/theme.sh
+# source ~/.dotfiles/tmux/base16.sh
+set -g @themepack 'powerline/block/cyan'
+set -goq @themepack-status-right-area-right-format ""
+set -goq @powerline-color-main-1 colour6
+set -goq @powerline-color-main-2 colour6
+set -goq @powerline-color-main-3 colour6
+
+# TMUX PLUGINS
+
+set -g @plugin 'jimeh/tmux-themepack'
+
+# Initialize TMUX plugin manager
+run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
