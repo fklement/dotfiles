@@ -1,22 +1,21 @@
 set nocompatible          
 filetype off           
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/VundleVim
+" TODO: Move vrom vundle to vim-plug
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'itchyny/lightline.vim'
 Plugin 'itchyny/vim-gitbranch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/Conque-Shell'
-
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 
 " Language support
 Plugin 'alvan/vim-closetag'
@@ -32,10 +31,26 @@ call vundle#end()
 filetype plugin indent on
 
 
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
+
+call plug#end()
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
+" set relativenumber
 set showcmd
 set cursorline
 filetype indent on
@@ -47,24 +62,79 @@ set incsearch
 set hlsearch
 set lazyredraw 
 set ruler
-set cmdheight=2
+set cmdheight=1
 set splitbelow
 set splitright
-let NERDTreeQuitOnOpen = 1
+set title
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeShowHidden=1
+let NERDTreeDirArrowExpandable = '▷'
+let NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIndicatorMapCustom = {
+\ "Modified"  : "✹",
+\ "Staged"    : "✚",
+\ "Untracked" : "✭",
+\ "Renamed"   : "➜",
+\ "Unmerged"  : "═",
+\ "Deleted"   : "✖",
+\ "Dirty"     : "✗",
+\ "Clean"     : "✔︎",
+\ 'Ignored'   : '☒',
+\ "Unknown"   : "?"
+\ }
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+" function! IsNERDTreeOpen()        
+"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+" function! SyncTree()
+"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
+
+" " Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Set font
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=Source\ Code\ Pro:h25
+set guifont=SauceCodePro\ Nerd\ Font\ 18
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
+" set laststatus=2
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = "\uE0C6"
+let g:airline_right_sep = "\uE0B2"
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.branch = ''
+let g:airline_symbols.notexists=' ⚡'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
@@ -88,13 +158,11 @@ set nobackup
 set nowb
 set noswapfile
 
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set noeb vb t_vb=.
 set tm=500
-
 
 " Set utf8 as standard encoding
 set encoding=utf8
@@ -145,9 +213,6 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-execute "set <A-j>=\ej"
-execute "set <A-k>=\ek"
-
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -155,62 +220,37 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-execute "set <A-d>=\ed"
-execute "set <A-o>=\eo"
-execute "set <A-p>=\ep"
-
 map  <A-d> :t.<CR>
 map  <A-o> [[
 map  <A-p> ]]
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Put all temporary files under the same directory
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists("*mkdir")
   for dir in ["files", "files/backup", "files/swap", "files/undo", "files/info"]
-    if !isdirectory($HOME . "/.vim/" . dir)
-      call mkdir($HOME . "/.vim/" . dir)
+    if !isdirectory($HOME . "/.config/nvim/" . dir)
+      call mkdir($HOME . "/.config/nvim/" . dir)
     endif
   endfor
 endif
 
 set backup
-set backupdir   =$HOME/.vim/files/backup/
+set backupdir   =$HOME/.config/nvim/files/backup/
 set backupext   =-vimbackup
 set backupskip  =
-set directory   =$HOME/.vim/files/swap/
+set directory   =$HOME/.config/nvim/files/swap/
 set updatecount =100
 set undofile
-set undodir     =$HOME/.vim/files/undo/
-set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+set undodir     =$HOME/.config/nvim/files/undo/
+set viminfo     ='100,n$HOME/.config/nvim/files/info/viminfo
 unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
 filetype plugin indent on
-
-
-let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:mix_format_on_save = 1
 
 let g:alchemist_tag_map = '<C-]>'
 let g:alchemist_tag_stack_map = '<C-T>'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Lightline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GitGutter
@@ -224,6 +264,9 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FastMode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function MultiScroll(OnOff)
 if a:OnOff == 1
@@ -235,5 +278,32 @@ else
 endif
 endfunction
 
-map \j :call MultiScroll(1)<RETURN>
-map \k :call MultiScroll(0)<RETURN>
+map fm :call MultiScroll(1)<RETURN>
+map sm :call MultiScroll(0)<RETURN>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => coc config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ 'coc-elixir',
+  \ 'coc-python'
+  \ ]
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+if has('nvim')
+  aug fzf_setup
+    au!
+    au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
+  aug END
+end

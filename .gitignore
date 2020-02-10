@@ -1,0 +1,8 @@
+.DS_Store
+Brewfile.lock.json
+config/nvim/autoload/plug.vim
+config/nvim/plugged
+config/nvim/files
+config/nvim/bundle
+tmux/plugins
+
