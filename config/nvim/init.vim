@@ -42,6 +42,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-startify'
+Plug 'dkprice/vim-easygrep'
 
 call plug#end()
 
@@ -200,6 +201,9 @@ map <silent> <leader><cr> :noh<cr>
 map <leader>vs :vsplit<cr>
 map <leader>s :split<cr>
 
+" Search with GREP
+map <leader>f :Grep 
+
 map <leader>tn :tab new<cr>
 map <leader>tr :tabclose<cr>
 map <leader>tra :tabo
@@ -223,6 +227,13 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 map  <A-d> :t.<CR>
 map  <A-o> [[
 map  <A-p> ]]
+
+
+" Fugitive Shortcuts
+nmap <silent> <leader>gs :Gstatus<cr>
+nmap <leader>ge :Gedit<cr>
+nmap <silent><leader>gr :Gread<cr>
+nmap <silent><leader>gb :Gblame<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Put all temporary files under the same directory
@@ -307,3 +318,5 @@ if has('nvim')
     au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
   aug END
 end
+
+:set mouse=n

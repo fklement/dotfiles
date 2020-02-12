@@ -181,7 +181,28 @@ alias tmux="tmux -2"
 alias tm="~/.dotfiles/bin/tm"
 alias tmr="tmux source-file ~/.tmux.conf && echo 'TMUX resourced!'"
 alias vim="nvim"
+
+# Helpers
+alias grep='grep --color=auto'
+alias df='df -h' # disk free, in Gigabytes, not bytes
+alias du='du -h -c' # calculate disk usage for a folder
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
