@@ -4,5 +4,6 @@ config/nvim/autoload/plug.vim
 config/nvim/plugged
 config/nvim/files
 config/nvim/bundle
+conifg/karabiner/automatic_backups 
 tmux/plugins
 

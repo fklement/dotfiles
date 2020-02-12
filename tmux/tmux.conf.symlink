@@ -16,8 +16,21 @@ bind l select-pane -R
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
 
-# enable mouse movements
-set -g mode on
+# Ensure window titles get renamed automatically.
+setw -g automatic-rename
+
+# Ensure window index numbers get reordered on delete.
+set-option -g renumber-windows on
+
+# Start windows and panes index at 1, not 0.
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Enable full mouse support.
+set -g mouse on
+
+# Enable color support inside of tmux.
+set -g default-terminal "screen-256color"
 
 # Color & Style Settings
 # source ~/.dotfiles/tmux/theme.sh
@@ -27,6 +40,7 @@ set -goq @themepack-status-right-area-right-format ""
 set -goq @powerline-color-main-1 colour6
 set -goq @powerline-color-main-2 colour6
 set -goq @powerline-color-main-3 colour6
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # TMUX PLUGINS
 
