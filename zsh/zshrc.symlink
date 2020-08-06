@@ -205,4 +205,18 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+# ROT13-encode text. Works for decoding, too! ;)
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+alias cap2hccapx='/Users/fklement/Code/github/hashcat-utils/src/cap2hccapx.bin'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# added by travis gem
+[ -f /Users/fklement/.travis/travis.sh ] && source /Users/fklement/.travis/travis.sh
+
+
+alias pandoc='/usr/local/Cellar/pandoc/2.9.2.1/bin/pandoc'
+alias zlib='/usr/local/Cellar/zlib/1.2.11'

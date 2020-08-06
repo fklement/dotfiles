@@ -6,15 +6,23 @@ unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
 
-# moving between panes with vim movement keys
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
+# open new pane in same directory
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
 
-# moving between windows with vim movement keys
-bind -r C-h select-window -t :-
-bind -r C-l select-window -t :+
+# kill all panes despite current one
+bind v kill-pane -a
+
+# # moving between panes with vim movement keys
+# bind h select-pane -L
+# bind j select-pane -D
+# bind k select-pane -U
+# bind l select-pane -R
+
+# # moving between windows with vim movement keys
+# bind -r C-h select-window -t :-
+# bind -r C-l select-window -t :+
 
 # Ensure window titles get renamed automatically.
 setw -g automatic-rename
@@ -41,10 +49,15 @@ set -goq @powerline-color-main-1 colour6
 set -goq @powerline-color-main-2 colour6
 set -goq @powerline-color-main-3 colour6
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'yardnsm/tmux-1password'
 
 # TMUX PLUGINS
-
+set -g @plugin 'xamut/tmux-spotify'
 set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
 
 # Initialize TMUX plugin manager
 run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
+
+
+set -g @1password-subdomain 'klement'
