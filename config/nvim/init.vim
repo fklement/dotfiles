@@ -46,6 +46,8 @@ Plug 'matze/vim-move'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+" Plug '907th/vim-auto-save'
+Plug 'lifepillar/vim-cheat40'
 
 call plug#end()
 
@@ -302,6 +304,18 @@ let g:gitgutter_sign_removed = '-'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rg_highlight = 'true'
 let g:rg_command = 'rg --vimgrep -S'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-auto-save 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:auto_save        = 1
+" let g:auto_save_silent = 1
+" let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Cheat40 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:cheat40_use_default = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FastMode
