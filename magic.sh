@@ -20,7 +20,7 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 
     # install brew dependencies from Brewfile
-    # brew bundle
+    brew bundle --file=./Brewfile
 
     # clone vundle into dotfiles associated folder
     if [ ! -d "$HOME/.dotfiles/config/nvim/bundle" ]; then
