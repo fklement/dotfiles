@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/fklement/.dotfiles/zsh'
+let g:netrw_dirhist_6='/Users/fklement/.dotfiles'
+let g:netrw_dirhist_5='/Users/fklement/.dotfiles/config'
+let g:netrw_dirhist_4='/Users/fklement/.dotfiles/config/nvim'
+let g:netrw_dirhist_3='/Users/fklement/.dotfiles/config'
+let g:netrw_dirhist_2='/Users/fklement/.dotfiles'
+let g:netrw_dirhist_1='/Users/fklement/Temp/download'

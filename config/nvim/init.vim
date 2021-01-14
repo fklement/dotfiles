@@ -48,6 +48,7 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " Plug '907th/vim-auto-save'
 Plug 'lifepillar/vim-cheat40'
+Plug 'pacha/vem-tabline'
 
 call plug#end()
 

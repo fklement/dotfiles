@@ -1,9 +1,17 @@
 {
     "suggest.noselect": false,
     "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+    "html.filetypes": [
+        "html",
+        "handlebars",
+        "htmldjango",
+        "html.eex",
+        "html.leex"
+    ],
     "coc.preferences.formatOnSaveFiletypes": [
         "elixir",
         "javascript",
+        "html",
         "typescript",
         "typescriptreact",
         "json",
