@@ -6,9 +6,8 @@ command_exists() {
 
 echo "Installing dotfiles."
 
-source scripts/link.sh
 
-#source scripts/git.sh
+source scripts/git.sh
 
 # only perform macOS-specific install
 if [ "$(uname)" == "Darwin" ]; then
@@ -21,6 +20,8 @@ if [ "$(uname)" == "Darwin" ]; then
 
     # install brew dependencies from Brewfile
     brew bundle --file=./Brewfile
+
+    source scripts/link.sh
 
     # clone vundle into dotfiles associated folder
     if [ ! -d "$HOME/.dotfiles/config/nvim/bundle" ]; then

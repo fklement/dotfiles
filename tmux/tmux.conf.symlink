@@ -50,6 +50,7 @@ set -goq @powerline-color-main-2 colour6
 set -goq @powerline-color-main-3 colour6
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'yardnsm/tmux-1password'
+set -g @1password-subdomain 'klement'
 
 # TMUX PLUGINS
 set -g @plugin 'xamut/tmux-spotify'
@@ -60,4 +61,3 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
 
 
-set -g @1password-subdomain 'klement'

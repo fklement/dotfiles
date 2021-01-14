@@ -151,12 +151,6 @@ alias sqlmap="/Users/fklement/Code/sqlmap-dev/sqlmap.py"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-. /usr/local/opt/asdf/asdf.sh
-
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-
-. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
-
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH=${JAVA_HOME}/bin:$PATH
 
@@ -220,3 +214,14 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 alias pandoc='/usr/local/Cellar/pandoc/2.9.2.1/bin/pandoc'
 alias zlib='/usr/local/Cellar/zlib/1.2.11'
+alias msfconsole='/opt/metasploit-framework/bin/msfconsole'
+
+eval "$(direnv hook zsh)"
+
+#. /usr/local/opt/asdf/asdf.sh
+
+#. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+#. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
+
+. /usr/local/opt/asdf/asdf.sh
