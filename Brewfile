@@ -6,12 +6,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "sambadevi/powerlevel9k"
 tap "schniz/tap"
-tap "stripe/stripe-cli"
-tap "teamookla/speedtest"
-brew "ack"
 brew "openssl@1.1"
 brew "readline"
-brew "aircrack-ng", link: false
 brew "autoconf"
 brew "automake"
 brew "coreutils"
@@ -103,13 +99,11 @@ brew "tree"
 brew "unzip"
 brew "vim"
 brew "wdiff"
-brew "weechat"
 brew "wget"
 brew "wimlib"
 brew "wireshark"
 brew "wxmac"
 brew "yarn"
-brew "youtube-dl"
 brew "z"
 brew "zlib"
 brew "zsh"
@@ -118,11 +112,8 @@ brew "sambadevi/powerlevel9k/powerlevel9k"
 brew "schniz/tap/fnm"
 brew "stripe/stripe-cli/stripe"
 brew "teamookla/speedtest/speedtest"
-cask "background-music"
 cask "font-sourcecodepro-nerd-font"
-cask "iterm2"
 cask "visual-studio-code"
-cask "kitty"
 cask "tunnelblick"
 cask "latexit"
 cask "texstudio"
@@ -139,10 +130,8 @@ cask "arduino"
 cask "wireshark"
 cask "burp-suite"
 cask "drawio"
-cask "hazeover"
 cask "google-chrome"
 cask "keybase"
-cask "vmware-fusion"
 cask "transmit"
 cask "microsoft-teams"
 cask "appcleaner"
@@ -151,29 +140,20 @@ cask "nextcloud"
 cask "bibdesk"
 cask "zoomus"
 cask "karabiner-elements"
-cask "1password"
 cask "1password-cli"
-cask "spotify"
 cask "forklift"
 cask "alfred"
 cask "docker"
 cask "deepl"
 mas "Adblock Plus", id: 1432731683
-mas "Downlink", id: 1454269192
 mas "Encrypto", id: 935235287
-mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft Word", id: 462054704
 mas "Notability", id: 736189492
 mas "Numbers", id: 409203825
 mas "Ora", id: 1340501510
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "Save to Pocket", id: 1477385213
-mas "Spark", id: 1176895641
-mas "Termius", id: 1176074088
 mas "Xcode", id: 497799835

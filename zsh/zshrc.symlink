@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -9,7 +11,7 @@ export TERM="xterm-256color"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
@@ -70,7 +72,7 @@ plugins=(
   pip
   python
   brew
-  osx
+  macos 
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
@@ -220,8 +222,27 @@ eval "$(direnv hook zsh)"
 
 #. /usr/local/opt/asdf/asdf.sh
 
-#. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 #. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
 
-. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
+#. /usr/local/opt/asdf/asdf.sh
+# . $HOME/.asdf/asdf.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f "$HOME/omnetpp-5.7/setenv" ] && source "$HOME/omnetpp-5.7/setenv"
+ export PATH=$HOME/omnetpp-5.7/bin:$HOME/omnetpp-5.7/tools/macosx/bin:$PATH
+export QT_PLUGIN_PATH=$HOME/omnetpp-5.7/tools/macosx/plugins
+
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
+export PATH="/usr/local/opt/qt@5/bin:$PATH"
+
+export PATH="/usr/local/opt/autoconf@2.69/bin:$PATH"
+
+export PATH=$PATH:/opt/local/bin
+
+source /Users/fklement/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
