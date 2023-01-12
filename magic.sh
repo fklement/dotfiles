@@ -43,7 +43,7 @@ if [ "$(uname)" == "Darwin" ]; then
         curl -fLo ~/.dotfiles/config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
-    # download vim-plug into dotfiles associated folder
+    # download tmux-plugins into dotfiles associated folder
     if [ -e "$HOME/.dotfiles/tmux/plugins/tpm" ]; then
         echo "tmux plugin manager already installed"
     else
@@ -51,11 +51,19 @@ if [ "$(uname)" == "Darwin" ]; then
         git clone https://github.com/tmux-plugins/tpm $HOME/.dotfiles/tmux/plugins/tpm
     fi
 
-    # download powerlevel9k into zsh custom folder 
-    if [ -e "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k" ]; then
-        echo "powerlevel9k already installed"
+    # download oh-my-zsh
+    if [ -e "$HOME/.oh-my-zsh" ]; then
+        echo "oh-my-zsh is already installed"
     else
-        git clone https://github.com/bhilburn/powerlevel9k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+
+
+    # download powerlevel10k into zsh custom folder 
+    if [ -e "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+        echo "powerlevel10k already installed"
+    else
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     fi
 
     # After the install, setup fzf

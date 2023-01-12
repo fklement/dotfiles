@@ -39,6 +39,16 @@ set -g mouse on
 
 # Enable color support inside of tmux.
 set -g default-terminal "screen-256color"
+set-option -sa terminal-overrides ',screen-256colo:RGB'
+
+# TMUX PLUGINS
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'yardnsm/tmux-1password'
+set -g @plugin 'xamut/tmux-spotify'
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+
+set -g @1password-subdomain 'klement'
 
 # Color & Style Settings
 # source ~/.dotfiles/tmux/theme.sh
@@ -48,14 +58,9 @@ set -goq @themepack-status-right-area-right-format ""
 set -goq @powerline-color-main-1 colour6
 set -goq @powerline-color-main-2 colour6
 set -goq @powerline-color-main-3 colour6
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'yardnsm/tmux-1password'
-set -g @1password-subdomain 'klement'
 
-# TMUX PLUGINS
-set -g @plugin 'xamut/tmux-spotify'
-set -g @plugin 'jimeh/tmux-themepack'
-set -g @plugin 'tmux-plugins/tmux-pain-control'
+set-option -sg escape-time 10
+
 
 # Initialize TMUX plugin manager
 run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
@@ -63,5 +68,5 @@ run -b '~/.dotfiles/tmux/plugins/tpm/tpm'
 
 
 # Fig Tmux Integration: Enabled
-source-file ~/.fig/tmux
+# source-file ~/.fig/tmux
 # End of Fig Tmux Integration

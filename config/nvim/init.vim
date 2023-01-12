@@ -91,7 +91,7 @@ let g:fern#renderer = "nerdfont"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autoformat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:python3_host_prog="/Applications/Xcode.app/Contents/Developer/usr/bin/python3"
+let g:python3_host_prog="│/Users/fklement/.asdf/shims/python3"
 au BufWrite * :Autoformat
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
@@ -279,7 +279,7 @@ set directory   =$HOME/.config/nvim/files/swap/
 set updatecount =100
 set undofile
 set undodir     =$HOME/.config/nvim/files/undo/
-set viminfo     ='100,n$HOME/.config/nvim/files/info/viminfo
+"set viminfo     ='100,n$HOME/.config/nvim/files/info/viminfo
 unlet! skip_defaults_vim
 filetype plugin indent on
 
